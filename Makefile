@@ -9,3 +9,8 @@ build-plugin:
 run-test:
 	@echo "Running Tests..."
 	@cd build/ && ctest
+
+format-style:
+	@echo "Formatting Code..."
+	@find plugin test \( -name '*.cpp' -o -name '*.h' \) -exec clang-format -i {} +
+	@echo "Done!"
