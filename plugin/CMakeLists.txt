@@ -2,14 +2,16 @@ cmake_minimum_required(VERSION 3.22)
 
 project(AudioPlugin VERSION 0.1.0)
 
+set(INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/include/BasicAudioPlugin")
+
 juce_add_plugin(${PROJECT_NAME}
-    COMPANT_NAME TestCompany
+    COMPANY_NAME TestCompany 
     IS_SYNTH FALSE
-    NEED_MIDI_INPUT TRUE
-    NEED_MIDI_OUTPUT TRUE
+    NEEDS_MIDI_OUTPUT FALSE
+    NEEDS_MIDI_INPUT FALSE
     PLUGIN_MANUFACTURER_CODE TEST
     PLUGIN_CODE AUPL
-    FORMATS VST3
+    FORMATS Standalone VST3
     PRODUCT_NAME "BasicAudioPlugin"
 )
 
@@ -17,11 +19,13 @@ target_sources(${PROJECT_NAME}
     PRIVATE
     source/PluginProcessor.cpp
     source/PluginEditor.cpp
+    ${INCLUDE_DIR}/PluginEditor.h
+    ${INCLUDE_DIR}/PluginProcessor.h
 )
 
 target_include_directories(${PROJECT_NAME}
     PRIVATE
-    include
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
 target_link_libraries(${PROJECT_NAME}
@@ -42,6 +46,11 @@ target_compile_definitions(${PROJECT_NAME}
 
 if(MSVC)
     target_compile_definitions(${PROJECT_NAME}
+        target_compile_options(${PROJECT_NAME} PRIVATE /Wall /WX)
         PRIVATE
         _SILENCE_CXX23_ALIGNED_STORAGE_DEPRECATION_WARNING)
+else()
+    target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -Wpedantic)
 endif()
+
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR}/..)

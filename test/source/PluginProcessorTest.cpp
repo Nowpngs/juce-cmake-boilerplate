@@ -3,9 +3,9 @@
 
 namespace audio_plugin_test
 {
-    TEST(AudioPluginAudioProcessor, ProcessorInitialization)
+    TEST(AudioProcessor, ProcessorInitialization)
     {
-        AudioPluginAudioProcessor processor{};
+        audio_plugin::AudioPluginAudioProcessor processor{};
         ASSERT_TRUE(processor.getName().isNotEmpty());
     }
 }
