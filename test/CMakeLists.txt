@@ -5,7 +5,7 @@ project(AudioPluginTest)
 enable_testing()
 
 add_executable(${PROJECT_NAME}
-    source/PluginProcessorTest.cpp
+    src/PluginProcessorTest.cpp
 )
 
 target_include_directories(${PROJECT_NAME}

@@ -5,7 +5,7 @@ project(AudioPlugin VERSION 0.1.0)
 set(INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/include/BasicAudioPlugin")
 
 juce_add_plugin(${PROJECT_NAME}
-    COMPANY_NAME TestCompany 
+    COMPANY_NAME TestCompany
     IS_SYNTH FALSE
     NEEDS_MIDI_OUTPUT FALSE
     NEEDS_MIDI_INPUT FALSE
@@ -17,8 +17,8 @@ juce_add_plugin(${PROJECT_NAME}
 
 target_sources(${PROJECT_NAME}
     PRIVATE
-    source/PluginProcessor.cpp
-    source/PluginEditor.cpp
+    src/PluginProcessor.cpp
+    src/PluginEditor.cpp
     ${INCLUDE_DIR}/PluginEditor.h
     ${INCLUDE_DIR}/PluginProcessor.h
 )
