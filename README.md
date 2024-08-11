@@ -36,6 +36,15 @@ Follow these steps to build and install your plugin:
 
    This command will create a build directory where all the build files and dependencies will be placed.
 
+3. **Build this plugin:**
+   After configuring, build the plugin using:
+
+   ```bash
+   cmake --build build
+   ```
+
+   This will compile your plugin and create the necessary binaries.
+
 ## License
 
 This project is licensed under the MIT License. See the full license text in the [LICENSE](https://opensource.org/license/mit) file.
