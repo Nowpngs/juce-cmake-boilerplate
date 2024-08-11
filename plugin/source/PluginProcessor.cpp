@@ -24,7 +24,7 @@ AudioPluginAudioProcessor::~AudioPluginAudioProcessor ()
 //==============================================================================
 const juce::String AudioPluginAudioProcessor::getName () const
 {
-    return JucePlugin_Name;
+    return "BasicAudioPlugin";
 }
 
 bool AudioPluginAudioProcessor::acceptsMidi () const
@@ -182,11 +182,11 @@ void AudioPluginAudioProcessor::setStateInformation (const void * data, int size
     // whose contents will have been created by the getStateInformation() call.
     juce::ignoreUnused (data, sizeInBytes);
 }
+}
 
 //==============================================================================
 // This creates new instances of the plugin..
 juce::AudioProcessor * JUCE_CALLTYPE createPluginFilter ()
 {
-    return new AudioPluginAudioProcessor ();
-}
+    return new audio_plugin::AudioPluginAudioProcessor ();
 }
