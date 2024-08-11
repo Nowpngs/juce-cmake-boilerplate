@@ -68,6 +68,30 @@ This project includes a suite of unit tests using the Google Test framework. To 
 
    This will execute all the tests and display the results in the terminal.
 
+## Coding Standard
+
+This project uses `clang-format` to maintain a consistent coding standard. To apply the coding standard to all `.cpp` and `.h` files in the plugin and test directories, follow these steps:
+
+1. **Install clang-format**
+
+   Ensure you have `clang-format` installed on your system. On macOS, you can easily install it using Homebrew:
+
+   ```bash
+   brew install clang-format
+   ```
+
+2. **Format the code**
+
+   Run the following command from the root directory of the project to format all `.cpp` and `.h` files in the plugin and test directories:
+
+   ```bash
+   find plugin test \( -name '*.cpp' -o -name '*.h' \) -exec clang-format -i {} +
+   ```
+
+   This will apply `clang-format` to all relevant files according to the style defined in your `.clang-format` file.
+
+   **Note:** Always format your code before committing changes to ensure that your code adheres to the project's coding standards. This helps maintain a consistent style across the codebase.
+
 ## License
 
 This project is licensed under the MIT License. See the full license text in the [LICENSE](https://opensource.org/license/mit) file.
