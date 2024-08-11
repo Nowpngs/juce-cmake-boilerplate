@@ -1,3 +1,3 @@
 install:
-	@echo "Building C++ project"
+	@echo "Installing Dependencies"
 	cmake -S . -B build
